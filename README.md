@@ -1,5 +1,7 @@
 # Arch Linux with KDE plasma
 
+![screenshot](docs/screenshot.png)
+
 My personal Arch Linux and KDE Plasma installation, this is not a beginner guide, please read the official [Arch Linux installation guide](https://wiki.archlinux.org/title/Installation_guide)
 
 ## Create a Bootable USB flash drive
