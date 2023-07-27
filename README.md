@@ -30,7 +30,7 @@ sudo dd if=archlinux-2023.07.01-x86_64.iso of=/dev/sda bs=1M status=progress
 While PC is booting hit **F12** and select the Arch flash drive from the boot menu
 
 ## Connect to the internet
-If you are using Ethernet connection just make sure the enthernet cable and use `ip link` to check if the interface has an IP address.
+If you are using an ethernet connection just make sure the ethernet cable is connected and use `ip link` to check if the interface has an IP address.
 
 On WiFi use `iwctl` to connect to your WiFi network.
 
