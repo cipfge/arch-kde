@@ -2,7 +2,9 @@
 
 ![screenshot](docs/screenshot.png)
 
-My personal Arch Linux and KDE Plasma installation, this is not a beginner guide, please read the official [Arch Linux installation guide](https://wiki.archlinux.org/title/Installation_guide)
+My personal Arch Linux and KDE Plasma installation.
+
+**Disclaimer:** This is not a beginner guide, please read the official [Arch Linux installation guide](https://wiki.archlinux.org/title/Installation_guide)
 
 ## Create a Bootable USB flash drive
 Download the latest Arch Linux ISO for x86_64 platform from [Arch Linux Downloads](https://archlinux.org/download/)
