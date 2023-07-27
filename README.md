@@ -169,3 +169,15 @@ Find and uncomment the line
 ```
 %wheel ALL=(ALL) ALL
 ```
+
+## GRUB Bootloader
+Install `grub` and required packages for UEFI
+```bash
+pacman -S grub efibootmgr dosfstools os-prober mtools
+```
+Configure `grub` bootloader
+```bash
+grub-install --target=x86_64-efi --bootloader-id=ARCH --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+You can now reboot into the ARCH instalation and remove the Arch Linux USB flash drive.
