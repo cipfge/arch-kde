@@ -119,7 +119,7 @@ hwclock --systohc --utc
 ```
 
 ## Localization
-Install `nano` and uncomment the line `LANG=en_US.UTF-8` on `/etc/locale.conf` file and generate localization configuration with `locale-gen`
+Install `nano` and uncomment the line `LANG=en_US.UTF-8 UTF-8` on `/etc/locale.conf` file and generate localization configuration with `locale-gen`
 ```bash
 pacman -S nano
 nano /etc/locale.conf
@@ -131,7 +131,41 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
 
 ## Hostname
-Set your desired hostname
+Set your desired hostname, replace HOSTNAME with your choice
 ```bash
 echo HOSTNAME > /etc/hostname
+```
+Edit the `/etc/hosts` file and add the following lines
+```
+127.0.0.1    localhost
+::1          localhost
+127.0.1.1    HOSTNAME.localdomain HOSTNAME
+```
+
+## Network
+Install Network Manager and extra packages for WiFi
+```bash
+pacman -S networkmanager wpa_supplicant wireless_tools netctl dialog
+```
+Enable Network Manager
+```bash
+systemctl enable NetworkManager
+```
+
+## Users
+Use ``passwd`` to change root account password
+```bash
+passwd
+```
+Add your user account, replace USERNAME with your name
+```bash
+useradd -m -G wheel USERNAME
+```
+Allow `wheel` group to run administrative commands via `sudo`
+```bash
+EDITOR=nano visudo
+```
+Find and uncomment the line
+```
+%wheel ALL=(ALL) ALL
 ```
