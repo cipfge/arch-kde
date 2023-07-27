@@ -104,3 +104,34 @@ Generate the Linux file system table, use `-U` parameter to identify partitions 
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
+
+## Change root
+Change root to `/mnt`
+```bash
+arch-chroot /mnt
+```
+
+## Configure the timezone
+Set your timezone
+```bash
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+hwclock --systohc --utc
+```
+
+## Localization
+Install `nano` and uncomment the line `LANG=en_US.UTF-8` on `/etc/locale.conf` file and generate localization configuration with `locale-gen`
+```bash
+pacman -S nano
+nano /etc/locale.conf
+locale-gen
+```
+Create the file `/etc/locale.conf` and add the line `LANG=en_US.UTF-8`
+```bash
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+```
+
+## Hostname
+Set your desired hostname
+```bash
+echo HOSTNAME > /etc/hostname
+```
