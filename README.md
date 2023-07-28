@@ -212,3 +212,13 @@ Install the KDE applications
 ```bash
 sudo pacman -S dolphin ksystemlog partitionmanager ark kate kcalc kdialog konsole print-manager elisa dragon ffmpegthumbs gwenview skanlite okular spectacle
 ```
+Enable `ssdm` display manager
+```bash
+sudo systemctl enable sddm
+```
+
+## Audio
+Install pipewire
+```bash
+pacman -S pipewire pipewire-audio pipewire-alsa pipewire-pulse
+```
