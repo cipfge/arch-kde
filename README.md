@@ -161,6 +161,10 @@ Add your user account, replace USERNAME with your name
 ```bash
 useradd -m -G wheel USERNAME
 ```
+Set the user password
+```bash
+passwd USERNAME
+```
 Allow `wheel` group to run administrative commands via `sudo`
 ```bash
 EDITOR=nano visudo
@@ -187,10 +191,28 @@ umount -R /mnt
 reboot
 ```
 
-## XORG and GPU drivers
-After rebooting the system, login with your user account and install XORG and GPU drivers
+## SWAP file
+Login as `root` and create a 4Gb swap file
 ```bash
-sudo pacman -S Xorg mesa
+dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+```
+Add the swap file to the Linux file system table
+```bash
+nano /etc/fstab
+```
+Add the lines
+```
+# swap file
+/swapfile none swap sw 0 0    
+```
+
+## XORG and GPU drivers
+Login with your user account and install XORG and GPU drivers
+```bash
+sudo pacman -S xorg mesa
 ```
 
 ## Bluetooth
@@ -210,7 +232,7 @@ sudo pacman -S plasma-meta plasma-wayland-session
 ```
 Install the KDE applications
 ```bash
-sudo pacman -S dolphin ksystemlog partitionmanager ark kate kcalc kdialog konsole print-manager elisa dragon ffmpegthumbs gwenview skanlite okular spectacle
+sudo pacman -S dolphin ksystemlog partitionmanager ark kate kcalc kdialog konsole print-manager elisa dragon ffmpegthumbs gwenview skanlite okular spectacle krunner packagekit-qt5
 ```
 Enable `ssdm` display manager
 ```bash
@@ -220,5 +242,27 @@ sudo systemctl enable sddm
 ## Audio
 Install pipewire
 ```bash
-pacman -S pipewire pipewire-audio pipewire-alsa pipewire-pulse
+sudo pacman -S pipewire pipewire-audio pipewire-alsa pipewire-pulse
 ```
+
+## Printers
+Install `cups` service
+```bash
+sudo pacman -S cups
+```
+Enable `cups` service
+```bash
+sudo systemctl enable cups.service
+```
+
+## Steam
+For Steam you need to enable `multilib` support, edit `/etc/pacman.conf` and uncomment the lines
+```
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+Install Steam
+```bash
+sudo pacman -S steam
+```
+Reboot the computer and login to the KDE Plasma desktop environment.
