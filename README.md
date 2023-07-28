@@ -181,3 +181,34 @@ grub-install --target=x86_64-efi --bootloader-id=ARCH --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 You can now reboot into the ARCH instalation and remove the Arch Linux USB flash drive.
+```bash
+exit
+umount -R /mnt
+reboot
+```
+
+## XORG and GPU drivers
+After rebooting the system, login with your user account and install XORG and GPU drivers
+```bash
+sudo pacman -S Xorg mesa
+```
+
+## Bluetooth
+Install the bluetooth service
+```bash
+sudo pacman -S bluez bluez-utils
+```
+Enable the bluetooth service
+```bash
+sudo systemctl enable bluetooth.service
+```
+
+## KDE
+Install KDE desktop environment
+```bash
+sudo pacman -S plasma-meta plasma-wayland-session
+```
+Install the KDE applications
+```bash
+sudo pacman -S dolphin ksystemlog partitionmanager ark kate kcalc kdialog konsole print-manager elisa dragon ffmpegthumbs gwenview skanlite okular spectacle
+```
