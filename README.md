@@ -209,6 +209,12 @@ Add the lines
 /swapfile none swap sw 0 0    
 ```
 
+## BASH
+Enable BASH autocomplete
+```bash
+sudo pacman -S bash-completion
+```
+
 ## XORG and GPU drivers
 Login with your user account and install XORG and GPU drivers
 ```bash
