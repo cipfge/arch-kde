@@ -230,6 +230,12 @@ Enable the bluetooth service
 ```bash
 sudo systemctl enable bluetooth.service
 ```
+On KDE if bluetooth device is disabled on login check the file `~/.config/bluedevilglobalrc` for this entry:
+```
+[Adapters]
+XX:XX:XX:XX:XX:XX_powered=false 
+```
+and remove it.
 
 ## KDE
 Install KDE desktop environment
