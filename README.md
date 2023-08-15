@@ -278,3 +278,9 @@ Install Steam
 sudo pacman -S steam
 ```
 Reboot the computer and login to the KDE Plasma desktop environment.
+
+## Spell checking
+For spell checking install `hunspell`
+```bash
+sudo pacman -S hunspell hunspell-en_us hunspell-ro
+```
