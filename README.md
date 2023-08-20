@@ -284,3 +284,13 @@ For spell checking install `hunspell`
 ```bash
 sudo pacman -S hunspell hunspell-en_us hunspell-ro
 ```
+
+## Fonts
+Latin families
+```bash
+sudo pacman -S ttf-bitstream-vera ttf-croscore ttf-dejavu
+```
+Monospaced
+```bash
+sudo pacman -S ttf-cascadia-code
+```
