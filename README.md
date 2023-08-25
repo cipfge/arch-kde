@@ -244,7 +244,7 @@ sudo pacman -S plasma-meta plasma-wayland-session
 ```
 Install the KDE applications
 ```bash
-sudo pacman -S dolphin ksystemlog partitionmanager ark kate kcalc kdialog konsole print-manager elisa dragon ffmpegthumbs gwenview skanlite okular spectacle krunner packagekit-qt5
+sudo pacman -S dolphin ksystemlog partitionmanager ark kate kcalc kdeconnect krdc kdialog konsole print-manager elisa dragon ffmpegthumbs gwenview skanlite okular spectacle packagekit-qt5
 ```
 Enable `ssdm` display manager
 ```bash
