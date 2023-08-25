@@ -304,3 +304,9 @@ Reboot the computer and add the main repository
 ```bash
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
+
+## Development
+For C/C++ development
+```bash
+sudo pacman -S git clang cmake ninja kdevelop neovim
+```
