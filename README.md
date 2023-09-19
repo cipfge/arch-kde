@@ -119,7 +119,7 @@ hwclock --systohc --utc
 ```
 
 ## Localization
-Install `nano` and uncomment the line `LANG=en_US.UTF-8 UTF-8` on `/etc/locale.conf` file and generate localization configuration with `locale-gen`
+Install `nano` and uncomment the line `LANG=en_US.UTF-8 UTF-8` on `/etc/locale.gen` file and generate localization configuration with `locale-gen`
 ```bash
 pacman -S nano
 nano /etc/locale.conf
@@ -240,7 +240,7 @@ and remove it.
 ## KDE
 Install KDE desktop environment
 ```bash
-sudo pacman -S plasma-meta plasma-wayland-session
+sudo pacman -S plasma plasma-wayland-session
 ```
 Install the KDE applications
 ```bash
