@@ -80,10 +80,10 @@ Mount partitions to `/mnt`
 ```bash
 mount /dev/nvme0n1p2 /mnt
 
-mkdir -p /mnt/boot/efi
+mkdir -p /mnt/efi
 mkdir /mnt/home
 
-mount /dev/nvme0n1p1 /mnt/boot/efi
+mount /dev/nvme0n1p1 /mnt/efi
 mount /dev/nvme0n1p3 /mnt/home
 ```
 
@@ -181,7 +181,7 @@ pacman -S grub efibootmgr dosfstools os-prober mtools
 ```
 Configure `grub` bootloader
 ```bash
-grub-install --target=x86_64-efi --bootloader-id=ARCH --recheck
+grub-install --target=x86_64-efi --efi-directory=efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 You can now reboot into the ARCH instalation and remove the Arch Linux USB flash drive.
