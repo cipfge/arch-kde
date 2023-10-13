@@ -62,29 +62,36 @@ root@archiso ~ # lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 nvme0n1     259:0    0 932.0G  0 disk 
 ├─nvme0n1p1 259:2    0     1G  0 part
-├─nvme0n1p2 259:2    0 128.0G  0 part
-└─nvme0n1p3 259:3    0 803.0G  0 part
+├─nvme0n1p2 259:2    0  16.0G  0 part
+├─nvme0n1p3 259:2    0 128.0G  0 part
+└─nvme0n1p4 259:3    0 803.0G  0 part
 ```
 Create the EFI file system
 ```bash
 mkfs.fat -F32 /dev/nvme0n1p1
 ```
 
+Create the swap partition
+```bash
+mkswap /dev/nvme0n1p2
+swapon /dev/nvme0n1p2
+```
+
 Create the `ext4` Linux file system on the rest
 ```bash
-mkfs.ext4 /dev/nvme0n1p2
 mkfs.ext4 /dev/nvme0n1p3
+mkfs.ext4 /dev/nvme0n1p4
 ```
 
 Mount partitions to `/mnt`
 ```bash
-mount /dev/nvme0n1p2 /mnt
+mount /dev/nvme0n1p3 /mnt
 
 mkdir -p /mnt/efi
 mkdir /mnt/home
 
 mount /dev/nvme0n1p1 /mnt/efi
-mount /dev/nvme0n1p3 /mnt/home
+mount /dev/nvme0n1p4 /mnt/home
 ```
 
 **Optional:** If you have other SSD drives create partitions and Linux file system for them or just mount them if they are already partitioned.
@@ -189,24 +196,6 @@ You can now reboot into the ARCH instalation and remove the Arch Linux USB flash
 exit
 umount -R /mnt
 reboot
-```
-
-## SWAP file
-Login as `root` and create a 4Gb swap file
-```bash
-dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
-```
-Add the swap file to the Linux file system table
-```bash
-nano /etc/fstab
-```
-Add the lines
-```
-# swap file
-/swapfile none swap sw 0 0    
 ```
 
 ## BASH
