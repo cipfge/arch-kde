@@ -284,16 +284,6 @@ Monospaced
 sudo pacman -S ttf-cascadia-code
 ```
 
-## Flatpak
-For sandboxing applications install flatpak
-```bash
-sudo pacman -S flatpak
-```
-Reboot the computer and add the main repository
-```bash
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-```
-
 ## Development
 For C/C++ development
 ```bash
